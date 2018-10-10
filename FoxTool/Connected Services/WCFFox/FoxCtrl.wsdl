@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FoxCtrl" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/FoxModel" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Numerics" />
+      <xs:element name="GetTitleIMG">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Genes" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="tokenID" type="xs:long" />
+            <xs:element minOccurs="0" name="imgurl" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTitleIMGResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetTitleIMGResult" nillable="true" type="q1:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetWords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetWordsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetWordsResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateWallet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Words" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateWalletResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateWalletResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ImportWallet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="privatekey" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ImportWalletResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ImportWalletResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getImg">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="genes" nillable="true" type="q2:ArrayOfstring" />
+            <xs:element minOccurs="0" name="tokenid" type="xs:long" />
+            <xs:element minOccurs="0" name="birthday" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getImgResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="getImgResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMarketList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tp" type="xs:int" />
+            <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+            <xs:element minOccurs="0" name="gens" type="xs:int" />
+            <xs:element minOccurs="0" name="sortfield" type="xs:int" />
+            <xs:element minOccurs="0" name="sorttype" type="xs:int" />
+            <xs:element minOccurs="0" name="tokenid" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMarketListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="GetMarketListResult" nillable="true" type="q3:ArrayOfMarketModel" />
+            <xs:element minOccurs="0" name="pagecount" type="xs:int" />
+            <xs:element minOccurs="0" name="allcount" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateFox">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="model" nillable="true" type="q4:AccountModel" />
+            <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="genes" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateFoxResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateFoxResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMyFox">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+            <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="thisid" type="xs:int" />
+            <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="isGestating" type="xs:int" />
+            <xs:element minOccurs="0" name="isready" type="xs:int" />
+            <xs:element minOccurs="0" name="sta" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="genes" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMyFoxResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="GetMyFoxResult" nillable="true" type="q5:ArrayOftFoxBase" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ViewFox">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tokenid" type="xs:int" />
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="wallet" nillable="true" type="q6:AccountModel" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ViewFoxResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="ViewFoxResult" nillable="true" type="q7:tFoxBase" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCurrentPricse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.Numerics" minOccurs="0" name="tokenid" type="q8:BigInteger" />
+            <xs:element minOccurs="0" name="type" type="xs:int" />
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="wallet" nillable="true" type="q9:AccountModel" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCurrentPricseResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System.Numerics" minOccurs="0" name="GetCurrentPricseResult" type="q10:BigInteger" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Update">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="fox" nillable="true" type="q11:tFoxBase" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetModel">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tokenid" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetModelResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="GetModelResult" nillable="true" type="q12:tFoxBase" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="genestr" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="tokenid" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="GetInfoResult" nillable="true" type="q13:ArrayOfFoxAttrModel" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInfo2">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="genestr" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="tokenid" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInfo2Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="GetInfo2Result" nillable="true" type="q14:ArrayOfFoxAttrModel" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAttrList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="genesStr" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="tokenid" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAttrListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAttrListResult" nillable="true" type="q15:ArrayOfArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFeedList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+            <xs:element minOccurs="0" name="tokenid" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFeedListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="GetFeedListResult" nillable="true" type="q16:ArrayOftFeedLog" />
+            <xs:element minOccurs="0" name="pagecount" type="xs:int" />
+            <xs:element minOccurs="0" name="allcount" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTravelList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+            <xs:element minOccurs="0" name="tokenid" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTravelListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="GetTravelListResult" nillable="true" type="q17:ArrayOftTrvalLog" />
+            <xs:element minOccurs="0" name="pagecount" type="xs:int" />
+            <xs:element minOccurs="0" name="allcount" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTrecive">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+            <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+            <xs:element minOccurs="0" name="tokenid" type="xs:long" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetTreciveResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/FoxModel" minOccurs="0" name="GetTreciveResult" nillable="true" type="q18:ArrayOftrecive" />
+            <xs:element minOccurs="0" name="pagecount" type="xs:int" />
+            <xs:element minOccurs="0" name="allcount" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCalls">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tokenid" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCallsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCallsResult" nillable="true" type="q19:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+      <xs:complexType name="ArrayOfunsignedInt">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="unsignedInt" type="xs:unsignedInt" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfunsignedInt" nillable="true" type="tns:ArrayOfunsignedInt" />
+      <xs:complexType name="ArrayOfArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfArrayOfstring" nillable="true" type="tns:ArrayOfArrayOfstring" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FoxModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FoxModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:complexType name="ArrayOfMarketModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="MarketModel" nillable="true" type="tns:MarketModel" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfMarketModel" nillable="true" type="tns:ArrayOfMarketModel" />
+      <xs:complexType name="MarketModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Addtime" type="xs:dateTime" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Calls" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Cprice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Endprice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Endtime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Fight" type="xs:int" />
+          <xs:element minOccurs="0" name="Geneation" type="xs:int" />
+          <xs:element minOccurs="0" name="Genes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Grow" type="xs:int" />
+          <xs:element minOccurs="0" name="Lucky" type="xs:int" />
+          <xs:element minOccurs="0" name="Picture" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Startprice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Tokenid" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="MarketModel" nillable="true" type="tns:MarketModel" />
+      <xs:complexType name="AccountModel">
+        <xs:sequence>
+          <xs:element name="address" nillable="true" type="xs:string" />
+          <xs:element name="privateKey" nillable="true" type="xs:string" />
+          <xs:element name="walletname" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AccountModel" nillable="true" type="tns:AccountModel" />
+      <xs:complexType name="ArrayOftFoxBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tFoxBase" nillable="true" type="tns:tFoxBase" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftFoxBase" nillable="true" type="tns:ArrayOftFoxBase" />
+      <xs:complexType name="tFoxBase">
+        <xs:sequence>
+          <xs:element name="_birthtime" type="xs:long" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="_calls" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element name="_charm" type="xs:decimal" />
+          <xs:element name="_cooldownindex" type="xs:long" />
+          <xs:element name="_generation" type="xs:long" />
+          <xs:element name="_genes" nillable="true" type="xs:string" />
+          <xs:element name="_id" type="xs:int" />
+          <xs:element name="_isgestating" type="xs:boolean" />
+          <xs:element name="_isready" type="xs:boolean" />
+          <xs:element name="_matronid" type="xs:long" />
+          <xs:element name="_nextactionat" type="xs:long" />
+          <xs:element name="_picture" nillable="true" type="xs:string" />
+          <xs:element name="_sireid" type="xs:long" />
+          <xs:element name="_siringwithid" type="xs:long" />
+          <xs:element name="_sta" type="xs:int" />
+          <xs:element name="_tokenid" nillable="true" type="xs:string" />
+          <xs:element name="_txhash" nillable="true" type="xs:string" />
+          <xs:element name="salesta" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tFoxBase" nillable="true" type="tns:tFoxBase" />
+      <xs:complexType name="ArrayOfFoxAttrModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FoxAttrModel" nillable="true" type="tns:FoxAttrModel" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfFoxAttrModel" nillable="true" type="tns:ArrayOfFoxAttrModel" />
+      <xs:complexType name="FoxAttrModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Attrname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Attrtype" type="xs:int" />
+          <xs:element minOccurs="0" name="Attrvalue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Csstype" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FoxAttrModel" nillable="true" type="tns:FoxAttrModel" />
+      <xs:complexType name="ArrayOftFeedLog">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tFeedLog" nillable="true" type="tns:tFeedLog" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftFeedLog" nillable="true" type="tns:ArrayOftFeedLog" />
+      <xs:complexType name="tFeedLog">
+        <xs:sequence>
+          <xs:element name="_addtime" type="xs:dateTime" />
+          <xs:element name="_eth" nillable="true" type="xs:string" />
+          <xs:element name="_ethaddress" nillable="true" type="xs:string" />
+          <xs:element name="_id" type="xs:int" />
+          <xs:element name="_meiliadd" type="xs:decimal" />
+          <xs:element name="_sta" type="xs:int" />
+          <xs:element name="_tokenid" nillable="true" type="xs:string" />
+          <xs:element name="_txhash" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tFeedLog" nillable="true" type="tns:tFeedLog" />
+      <xs:complexType name="ArrayOftTrvalLog">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tTrvalLog" nillable="true" type="tns:tTrvalLog" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftTrvalLog" nillable="true" type="tns:ArrayOftTrvalLog" />
+      <xs:complexType name="tTrvalLog">
+        <xs:sequence>
+          <xs:element name="_addtime" type="xs:dateTime" />
+          <xs:element name="_backtime" type="xs:dateTime" />
+          <xs:element name="_eth" nillable="true" type="xs:string" />
+          <xs:element name="_ethaddress" nillable="true" type="xs:string" />
+          <xs:element name="_id" type="xs:int" />
+          <xs:element name="_sta" type="xs:int" />
+          <xs:element name="_tokenid" nillable="true" type="xs:string" />
+          <xs:element name="_txhash" nillable="true" type="xs:string" />
+          <xs:element name="backtype" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="tTrvalLog" nillable="true" type="tns:tTrvalLog" />
+      <xs:complexType name="ArrayOftrecive">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="trecive" nillable="true" type="tns:trecive" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOftrecive" nillable="true" type="tns:ArrayOftrecive" />
+      <xs:complexType name="trecive">
+        <xs:sequence>
+          <xs:element name="_addtime" type="xs:dateTime" />
+          <xs:element name="_allmoney" nillable="true" type="xs:string" />
+          <xs:element name="_id" type="xs:int" />
+          <xs:element name="_intype" type="xs:int" />
+          <xs:element name="_lefteth" nillable="true" type="xs:string" />
+          <xs:element name="_sta" type="xs:int" />
+          <xs:element name="_thischarm" type="xs:decimal" />
+          <xs:element name="_thiseth" nillable="true" type="xs:string" />
+          <xs:element name="_thispersnt" type="xs:decimal" />
+          <xs:element name="_tokenid" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="trecive" nillable="true" type="tns:trecive" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Numerics" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Numerics" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="BigInteger">
+        <xs:annotation>
+          <xs:appinfo>
+            <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="_bits" nillable="true" type="q1:ArrayOfunsignedInt" />
+          <xs:element name="_sign" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BigInteger" nillable="true" type="tns:BigInteger" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IFoxCtrl_GetTitleIMG_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitleIMG" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetTitleIMG_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitleIMGResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetWords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWords" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetWords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_CreateWallet_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateWallet" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_CreateWallet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateWalletResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_ImportWallet_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImportWallet" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_ImportWallet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImportWalletResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_getImg_InputMessage">
+    <wsdl:part name="parameters" element="tns:getImg" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_getImg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getImgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetMarketList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketList" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetMarketList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_CreateFox_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFox" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_CreateFox_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetMyFox_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyFox" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetMyFox_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyFoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_ViewFox_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewFox" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_ViewFox_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewFoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetCurrentPricse_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentPricse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetCurrentPricse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentPricseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModel" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetInfo2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfo2" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetInfo2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfo2Response" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetAttrList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttrList" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetAttrList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttrListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetFeedList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedList" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetFeedList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetTravelList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTravelList" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetTravelList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTravelListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetTrecive_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrecive" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetTrecive_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreciveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetCalls_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCalls" />
+  </wsdl:message>
+  <wsdl:message name="IFoxCtrl_GetCalls_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFoxCtrl">
+    <wsdl:operation name="GetTitleIMG">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetTitleIMG" message="tns:IFoxCtrl_GetTitleIMG_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetTitleIMGResponse" message="tns:IFoxCtrl_GetTitleIMG_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetWords" message="tns:IFoxCtrl_GetWords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetWordsResponse" message="tns:IFoxCtrl_GetWords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateWallet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/CreateWallet" message="tns:IFoxCtrl_CreateWallet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/CreateWalletResponse" message="tns:IFoxCtrl_CreateWallet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportWallet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/ImportWallet" message="tns:IFoxCtrl_ImportWallet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/ImportWalletResponse" message="tns:IFoxCtrl_ImportWallet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getImg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/getImg" message="tns:IFoxCtrl_getImg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/getImgResponse" message="tns:IFoxCtrl_getImg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetMarketList" message="tns:IFoxCtrl_GetMarketList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetMarketListResponse" message="tns:IFoxCtrl_GetMarketList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFox">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/CreateFox" message="tns:IFoxCtrl_CreateFox_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/CreateFoxResponse" message="tns:IFoxCtrl_CreateFox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyFox">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetMyFox" message="tns:IFoxCtrl_GetMyFox_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetMyFoxResponse" message="tns:IFoxCtrl_GetMyFox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewFox">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/ViewFox" message="tns:IFoxCtrl_ViewFox_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/ViewFoxResponse" message="tns:IFoxCtrl_ViewFox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentPricse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetCurrentPricse" message="tns:IFoxCtrl_GetCurrentPricse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetCurrentPricseResponse" message="tns:IFoxCtrl_GetCurrentPricse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/Update" message="tns:IFoxCtrl_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/UpdateResponse" message="tns:IFoxCtrl_Update_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetModel" message="tns:IFoxCtrl_GetModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetModelResponse" message="tns:IFoxCtrl_GetModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetInfo" message="tns:IFoxCtrl_GetInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetInfoResponse" message="tns:IFoxCtrl_GetInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetInfo2" message="tns:IFoxCtrl_GetInfo2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetInfo2Response" message="tns:IFoxCtrl_GetInfo2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttrList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetAttrList" message="tns:IFoxCtrl_GetAttrList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetAttrListResponse" message="tns:IFoxCtrl_GetAttrList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetFeedList" message="tns:IFoxCtrl_GetFeedList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetFeedListResponse" message="tns:IFoxCtrl_GetFeedList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetTravelList" message="tns:IFoxCtrl_GetTravelList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetTravelListResponse" message="tns:IFoxCtrl_GetTravelList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrecive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetTrecive" message="tns:IFoxCtrl_GetTrecive_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetTreciveResponse" message="tns:IFoxCtrl_GetTrecive_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCalls">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoxCtrl/GetCalls" message="tns:IFoxCtrl_GetCalls_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoxCtrl/GetCallsResponse" message="tns:IFoxCtrl_GetCalls_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFoxCtrl" type="tns:IFoxCtrl">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTitleIMG">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetTitleIMG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWords">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetWords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWallet">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/CreateWallet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportWallet">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/ImportWallet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImg">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/getImg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketList">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetMarketList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFox">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/CreateFox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyFox">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetMyFox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewFox">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/ViewFox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentPricse">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetCurrentPricse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModel">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo2">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetInfo2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttrList">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetAttrList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedList">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetFeedList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelList">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetTravelList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrecive">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetTrecive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalls">
+      <soap:operation soapAction="http://tempuri.org/IFoxCtrl/GetCalls" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FoxCtrl">
+    <wsdl:port name="BasicHttpBinding_IFoxCtrl" binding="tns:BasicHttpBinding_IFoxCtrl">
+      <soap:address location="http://wcf.weirdfoxes.cn/FoxWCF.FoxCtrl.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
